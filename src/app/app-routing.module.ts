@@ -8,14 +8,12 @@ import { NavComponent } from './components/nav/nav.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: '', component: NavComponent, canActivate:[AuthGuard], children: 
-    [
-      {path: 'home', component: HomeComponent},
-      {path: 'tecnicos', component: TecnicoListComponent}
+    path: '', component: NavComponent, canActivate: [AuthGuard], children: [
+      { path: 'home', component: HomeComponent },
+
+      { path: 'tecnicos', component: TecnicoListComponent}
     ]
   }
 ];
