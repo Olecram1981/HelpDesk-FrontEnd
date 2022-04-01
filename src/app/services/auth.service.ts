@@ -13,22 +13,22 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  authenticate(creds: Credenciais){
+  authenticate(creds: Credenciais) {
     return this.http.post(`${API_CONFIG.baseUrl}/login`, creds, {
       observe: 'response',
       responseType: 'text'
     })
   }
 
-  sucessfulLogin(authToken: string){
-    localStorage.setItemf('token', authToken)
+  successfulLogin(authToken: string) {
+    localStorage.setItem('token', authToken);
   }
 
-  isAuthenticated(){
+  isAuthenticated() {
     let token = localStorage.getItem('token')
-    if (token != null){
+    if(token != null) {
       return !this.jwtService.isTokenExpired(token)
     }
-    return false;
+    return false
   }
 }
